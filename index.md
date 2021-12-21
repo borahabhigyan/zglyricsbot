@@ -1,5 +1,5 @@
 ## জুবিনৰ গান
-### This is the site of the repository that contains the lyrics needed to run [ZGLyricsBot](twitter.com/ZGLyricsBot) at twitter.
+### This is the site of the repository that contains the lyrics needed to run [ZGLyricsBot](https://twitter.com/ZGLyricsBot) at twitter.
 #### The repository is [here](https://github.com/borahabhigyan/zglyricsbot/)
 #### You can contribute to the project by following these steps-
 > ##### Step 1: Fork the repo.
@@ -8,3 +8,6 @@
 
 ##### That's it.
 ##### Thank you.
+
+
+###### made by Abhigyan.
