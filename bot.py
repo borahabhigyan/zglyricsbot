@@ -1,34 +1,33 @@
 import tweepy
-import json
 import os
+import json
 import random
-import sys
 
-# Load Twitter API keys from environment variables
+# Load keys
+BEARER_TOKEN = os.environ["BEARER_TOKEN"]
 API_KEY = os.environ["API_KEY"]
 API_SECRET = os.environ["API_SECRET"]
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 ACCESS_SECRET = os.environ["ACCESS_SECRET"]
 
-# Authenticate with Tweepy
-try:
-    auth = tweepy.OAuth1UserHandler(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
-    api = tweepy.API(auth)
-except Exception as e:
-    print(f"Authentication failed: {e}")
-    sys.exit(1)
+# Use Tweepy v2 client
+client = tweepy.Client(
+    consumer_key=API_KEY,
+    consumer_secret=API_SECRET,
+    access_token=ACCESS_TOKEN,
+    access_token_secret=ACCESS_SECRET
+)
 
 # Load lyrics
 with open("lyrics.json", "r") as f:
     lyrics = json.load(f)
 
-# Choose a random lyric to tweet
 lyric_to_post = random.choice(lyrics)
 
-# Post tweet
+# Post tweet using v2 endpoint
 try:
-    api.update_status(lyric_to_post)
+    response = client.create_tweet(text=lyric_to_post)
     print(f"Posted lyric: {lyric_to_post}")
 except Exception as e:
     print(f"Failed to post lyric: {e}")
-    sys.exit(1)
+
