@@ -31,12 +31,12 @@ lyric_to_post = random.choice(lyrics)
 
 # Add random emoji to reduce chances of duplicate rejection
 emojis = ["🎵", "🎶", "✨", "🎤", "⭐"]
-lyric_to_post = f"{lyric_to_post} {random.choice(emojis)}"
+lyric_to_post = f"{lyric_to_post} {random.choice(emojis)}\n#JusticeForZubeenGarg"
 
 # Post tweet
 try:
     client.create_tweet(text=lyric_to_post)
-    print(f"Posted lyric: {lyric_to_post}")
+    print(f"Posted lyric:\n{lyric_to_post}")
 except Exception as e:
     print(f"Failed to post lyric: {e}")
     sys.exit(1)
